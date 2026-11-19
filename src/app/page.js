@@ -154,7 +154,7 @@ function Flower({ className = "", color = "#F04B91" }) {
 
 function Label({ children }) {
   return (
-    <div className="mb-3 flex items-center gap-3 text-xs font-bold uppercase tracking-[.2em] text-[#F04B91]">
+    <div className="mb-3 flex items-center gap-3 text-sm font-bold uppercase tracking-[.2em] text-[#F04B91]">
       <span className="h-[2px] w-8 rounded-full bg-[#F04B91]" />
       {children}
     </div>
@@ -163,7 +163,7 @@ function Label({ children }) {
 
 function Button({ children, href = "#contact", light = false }) {
   return (
-    <a href={href} className={`group inline-flex items-center gap-3 rounded-full px-6 py-3 text-xs font-bold uppercase tracking-wider transition hover:-translate-y-1 hover:shadow-lg ${light ? "bg-white text-[#222] hover:bg-[#FFE995]" : "bg-[#F04B91] text-white hover:bg-[#d92f7c]"}`}>
+    <a href={href} className={`group inline-flex items-center gap-3 rounded-full px-6 py-3 text-sm font-bold uppercase tracking-wider transition hover:-translate-y-1 hover:shadow-lg ${light ? "bg-white text-[#222] hover:bg-[#FFE995]" : "bg-[#F04B91] text-white hover:bg-[#d92f7c]"}`}>
       {children}
       <span className="flex h-7 w-7 items-center justify-center rounded-full bg-black/10 transition group-hover:rotate-45">
         <Icon name="arrow" size={14} />
@@ -204,7 +204,7 @@ export default function Home() {
 
       {/* TOP BAR */}
      <div className="relative z-50 bg-[#171717] px-5 py-3 text-white">
-  <div className="mx-auto flex max-w-[1400px] items-center justify-between gap-4 text-sm">
+  <div className="mx-auto flex max-w-[1400px] items-center justify-between gap-4 text-base">
     <div className="flex flex-wrap items-center gap-5">
       <a
         href="mailto:info@mayahouse.com"
@@ -242,7 +242,7 @@ export default function Home() {
 
       <a
         href="#gallery"
-        className="ml-2 rounded-full bg-white px-5 py-2 text-sm font-medium text-black transition hover:bg-[#FFE995]"
+        className="ml-2 rounded-full bg-white px-5 py-2 text-base font-medium text-black transition hover:bg-[#FFE995]"
       >
         Explore
       </a>
@@ -280,9 +280,9 @@ export default function Home() {
 
             <div className="hidden items-center gap-6 rounded-full border border-white/20 bg-black/20 px-6 py-3 backdrop-blur-xl lg:flex">
               {navigation.map(([label, href]) => (
-                <a key={label} href={href} className="text-xs font-bold uppercase tracking-wider text-white/90 transition hover:text-[#FFE995]">{label}</a>
+                <a key={label} href={href} className="text-sm font-bold uppercase tracking-wider text-white/90 transition hover:text-[#FFE995]">{label}</a>
               ))}
-              <a href="#contact" className="rounded-full bg-[#F04B91] px-6 py-3 text-xs font-bold uppercase text-white hover:bg-[#FFE995] hover:text-black">Booking</a>
+              <a href="#contact" className="rounded-full bg-[#F04B91] px-6 py-3 text-sm font-bold uppercase text-white hover:bg-[#FFE995] hover:text-black">Booking</a>
             </div>
 
             <button type="button" onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle navigation" className="flex h-11 w-11 items-center justify-center rounded-full border border-white/60 bg-black/30 text-white backdrop-blur-md lg:hidden">
@@ -294,9 +294,9 @@ export default function Home() {
             <div className="absolute left-4 right-4 top-full rounded-3xl bg-[#171717]/95 p-7 shadow-2xl backdrop-blur-xl lg:hidden">
               <div className="flex flex-col gap-5">
                 {navigation.map(([label, href]) => (
-                  <a key={label} href={href} onClick={() => setMenuOpen(false)} className="text-sm font-semibold uppercase text-white hover:text-[#FFE995]">{label}</a>
+                  <a key={label} href={href} onClick={() => setMenuOpen(false)} className="text-base font-semibold uppercase text-white hover:text-[#FFE995]">{label}</a>
                 ))}
-                <a href="#contact" onClick={() => setMenuOpen(false)} className="rounded-full bg-[#F04B91] px-5 py-3 text-center text-sm text-white">Booking</a>
+                <a href="#contact" onClick={() => setMenuOpen(false)} className="rounded-full bg-[#F04B91] px-5 py-3 text-center text-base text-white">Booking</a>
               </div>
             </div>
           )}
@@ -304,14 +304,14 @@ export default function Home() {
 
         <div className="absolute inset-0 z-10 flex items-center justify-center px-6 pt-24 text-center">
           <div key={slide} className="max-w-4xl animate-[heroIn_.8s_ease-out]">
-            <div className="mb-6 inline-flex items-center gap-3 rounded-full border border-white/30 bg-white/10 px-5 py-2.5 text-xs font-bold uppercase tracking-[.25em] text-[#FFE995] backdrop-blur-md">
+            <div className="mb-6 inline-flex items-center gap-3 rounded-full border border-white/30 bg-white/10 px-5 py-2.5 text-sm font-bold uppercase tracking-[.25em] text-[#FFE995] backdrop-blur-md">
               <span className="h-2 w-2 rounded-full bg-[#FFE995]" />
               Welcome to Maya House
             </div>
-            <h1 className="font-sans text-4xl font-semibold leading-tight text-white drop-shadow-lg sm:text-6xl lg:text-6xl">
+            <h1 className="font-sans text-5xl font-semibold leading-tight text-white drop-shadow-lg sm:text-7xl lg:text-7xl">
               {slides[slide].title}
             </h1>
-            <p className="mt-5 font-sans text-lg  text-white sm:text-xl">{slides[slide].subtitle}</p>
+            <p className="mt-5 font-sans text-xl  text-white sm:text-2xl">{slides[slide].subtitle}</p>
             <div className="mt-8"><Button href="#about" light>Discover More</Button></div>
           </div>
         </div>
@@ -337,10 +337,10 @@ export default function Home() {
         <div className="relative mx-auto grid max-w-[1300px] items-center gap-10 lg:grid-cols-[.8fr_1.2fr]">
           <div>
             <Label>About Us</Label>
-            <h2 className="font-sans text-3xl leading-tight text-[#F04B91] sm:text-4xl lg:text-[40px]">
+            <h2 className="font-sans text-4xl leading-tight text-[#F04B91] sm:text-5xl lg:text-[46px]">
               Luxury & Comfort Our Services Wonders of Puerto Morelos
             </h2>
-            <p className="mt-5 text-base leading-7 text-[#666]">
+            <p className="mt-5 text-lg leading-7 text-[#666]">
               Whether you are visiting Puerto Morelos for the day or choosing to stay, Maya House can help make your visit memorable. Located in a quaint and peaceful location of this seaport city, you will be in close proximity to the beaches, eateries, or shopping hubs.
             </p>
             <div className="mt-7"><Button href="#discover">Read More</Button></div>
@@ -356,7 +356,7 @@ export default function Home() {
             <div className="absolute -bottom-3 left-[35%] z-10 w-[48%] overflow-hidden rounded-[1.5rem] border-[5px] border-white shadow-xl">
               <img src="/about/about-3.jpeg" alt="Ocean view" className="h-[120px] w-full object-cover sm:h-[160px]" />
             </div>
-            <div className="absolute -right-2 -top-4 flex h-20 w-20 items-center justify-center rounded-full border-[5px] border-white bg-[#F04B91] text-center font-sans text-xs leading-4 text-white shadow-xl sm:h-24 sm:w-24">
+            <div className="absolute -right-2 -top-4 flex h-20 w-20 items-center justify-center rounded-full border-[5px] border-white bg-[#F04B91] text-center font-sans text-sm leading-4 text-white shadow-xl sm:h-24 sm:w-24">
               Maya<br />House
             </div>
           </div>
@@ -385,15 +385,15 @@ export default function Home() {
     <div className="max-w-xl rounded-[2rem] border border-white/50 bg-white/35 p-6 shadow-[0_15px_50px_rgba(0,0,0,.08)] backdrop-blur-sm sm:p-8">
       <Label>Discover the destination</Label>
 
-      <h2 className="font-sans text-3xl leading-tight text-[#F04B91] sm:text-4xl">
+      <h2 className="font-sans text-4xl leading-tight text-[#F04B91] sm:text-5xl">
         Come, Discover Puerto Morelos, Mexico's Almost Forgotten Gem!
       </h2>
 
-      <p className="mt-4 text-base leading-7 text-[#222]">
+      <p className="mt-4 text-lg leading-7 text-[#222]">
         Maya House is located in a gated community called Seven Essence, a quiet complex surrounded by the beautiful Mayan jungle. Only 10 minutes away from the beach by car.
       </p>
 
-      <p className="mt-3 text-base leading-7 text-[#222]">
+      <p className="mt-3 text-lg leading-7 text-[#222]">
         Equipped with modern facilities and conveniences, it will be the perfect home for the duration of your Puerto Morelos stays.
       </p>
     </div>
@@ -414,10 +414,10 @@ export default function Home() {
             <div className="mb-5 flex items-center justify-between gap-4">
               <div>
                 <Label>Inside Maya House</Label>
-                <p className="text-sm text-[#888]">Take a closer look at the spaces</p>
+                <p className="text-base text-[#888]">Take a closer look at the spaces</p>
               </div>
               <div className="flex items-center gap-2">
-                <span className="mr-2 text-xs font-semibold tabular-nums text-[#888]">
+                <span className="mr-2 text-sm font-semibold tabular-nums text-[#888]">
                   {String(amenitiesPhotoIndex + 1).padStart(2, "0")} / {String(photos.length).padStart(2, "0")}
                 </span>
                 <button type="button" onClick={() => setAmenitiesPhotoIndex((current) => (current - 1 + photos.length) % photos.length)} aria-label="Previous amenities photo" className="flex h-10 w-10 items-center justify-center rounded-full border border-[#e8e8e8] bg-white text-[#F04B91] shadow-sm transition hover:border-[#F04B91] hover:bg-[#F04B91] hover:text-white">
@@ -436,7 +436,7 @@ export default function Home() {
                   <div key={`${photoIndex}-${offset}`} className={`group relative overflow-hidden rounded-[1.5rem] bg-[#eee] shadow-[0_15px_40px_rgba(0,0,0,.09)] ${offset === 1 ? "hidden sm:block" : ""} ${offset === 2 ? "hidden lg:block" : ""}`}>
                     <img src={photos[photoIndex]} alt={`Maya House accommodation ${photoIndex + 1}`} loading="lazy" className="h-[300px] w-full object-cover transition duration-700 group-hover:scale-105 sm:h-[340px] lg:h-[390px]" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent" />
-                    <span className="absolute bottom-4 left-4 rounded-full border border-white/40 bg-black/25 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[.18em] text-white backdrop-blur-md">
+                    <span className="absolute bottom-4 left-4 rounded-full border border-white/40 bg-black/25 px-3 py-1.5 text-[12px] font-semibold uppercase tracking-[.18em] text-white backdrop-blur-md">
                       Maya House · {String(photoIndex + 1).padStart(2, "0")}
                     </span>
                   </div>
@@ -454,15 +454,15 @@ export default function Home() {
           {/* AMENITIES CONTENT */}
           <div>
             <Label>Our Amenities</Label>
-            <h2 className="font-sans text-3xl leading-tight text-[#F04B91] sm:text-4xl">Comfort & Convenience</h2>
-            <p className="mt-3 text-base leading-7 text-[#777]">Thoughtfully equipped spaces and practical comforts for a relaxing stay.</p>
+            <h2 className="font-sans text-4xl leading-tight text-[#F04B91] sm:text-5xl">Comfort & Convenience</h2>
+            <p className="mt-3 text-lg leading-7 text-[#777]">Thoughtfully equipped spaces and practical comforts for a relaxing stay.</p>
             <div className="mt-6 grid gap-2.5 sm:grid-cols-2">
               {amenities.map((item, index) => (
                 <div key={item} className="group flex items-center gap-3 rounded-xl border border-[#eee] bg-white p-3 transition hover:-translate-y-1 hover:border-[#F04B91]/40 hover:shadow-md">
                   <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#FFE995] text-[#F04B91] transition group-hover:bg-[#F04B91] group-hover:text-white">
                     <Icon name={index % 2 === 0 ? "check" : "arrow"} size={15} />
                   </span>
-                  <span className="text-sm leading-5 text-[#555]">{item}</span>
+                  <span className="text-base leading-5 text-[#555]">{item}</span>
                 </div>
               ))}
             </div>
@@ -504,26 +504,26 @@ export default function Home() {
       <div>
         {/* <div className="mb-5 inline-flex items-center gap-3 rounded-full border border-[#FFE995]/30 bg-white/10 px-5 py-2.5 backdrop-blur-md">
           <span className="h-2 w-2 rounded-full bg-[#F04B91] shadow-[0_0_12px_#F04B91]" />
-          <span className="text-xs font-bold uppercase tracking-[.25em] text-[#FFE995]">
+          <span className="text-sm font-bold uppercase tracking-[.25em] text-[#FFE995]">
             The Building Complex Offers
           </span>
         </div> */}
 
-        <h2 className="max-w-2xl font-sans text-4xl leading-[1.1] text-white sm:text-5xl lg:text-[56px]">
+        <h2 className="max-w-2xl font-sans text-5xl leading-[1.1] text-white sm:text-6xl lg:text-[62px]">
           The Building Complex Offers
           
         </h2>
       </div>
 
       <div className="max-w-md lg:justify-self-end">
-        {/* <p className="text-sm leading-7 text-white/70 sm:text-base">
+        {/* <p className="text-base leading-7 text-white/70 sm:text-lg">
           Enjoy thoughtfully designed shared spaces and facilities that bring
           comfort, recreation and relaxation together throughout your stay.
         </p> */}
 
         <div className="mt-5 flex items-center gap-3">
           <span className="h-[2px] w-10 bg-[#F04B91]" />
-          <span className="text-xs font-bold uppercase tracking-[.2em] text-[#FFE995]">
+          <span className="text-sm font-bold uppercase tracking-[.2em] text-[#FFE995]">
             Discover the facilities
           </span>
         </div>
@@ -540,7 +540,7 @@ export default function Home() {
         >
 
           {/* Oversized decorative number */}
-          <span className="pointer-events-none absolute -right-2 -top-7 -z-10 font-sans text-[100px] font-bold leading-none text-white/[.055] transition-all duration-500 group-hover:scale-110 group-hover:text-white/15 sm:text-[125px]">
+          <span className="pointer-events-none absolute -right-2 -top-7 -z-10 font-sans text-[106px] font-bold leading-none text-white/[.055] transition-all duration-500 group-hover:scale-110 group-hover:text-white/15 sm:text-[131px]">
             {String(index + 1).padStart(2, "0")}
           </span>
 
@@ -562,7 +562,7 @@ export default function Home() {
           <div className="relative z-10 mt-8">
             <div className="mb-3 h-[2px] w-8 rounded-full bg-[#F04B91] transition-all duration-500 group-hover:w-14 group-hover:bg-[#FFE995]" />
 
-            <h3 className="max-w-[190px] text-sm font-semibold leading-6 text-white sm:text-lg">
+            <h3 className="max-w-[190px] text-base font-semibold leading-6 text-white sm:text-xl">
               {item.title}
             </h3>
           </div>
@@ -583,14 +583,14 @@ export default function Home() {
           <span className="h-8 w-8 rounded-full border-2 border-[#171717] bg-[#FFE995]" />
           <span className="h-8 w-8 rounded-full border-2 border-[#171717] bg-white" />
         </div>
-        <p className="text-xs tracking-wide text-white/65">
+        <p className="text-sm tracking-wide text-white/65">
           Comfort, recreation & relaxation
         </p>
       </div>
 
       <a
         href="#contact"
-        className="group inline-flex items-center gap-3 rounded-full border border-[#FFE995]/50 px-6 py-3 text-xs font-bold uppercase tracking-wider text-[#FFE995] transition-all duration-300 hover:border-[#F04B91] hover:bg-[#F04B91] hover:text-white"
+        className="group inline-flex items-center gap-3 rounded-full border border-[#FFE995]/50 px-6 py-3 text-sm font-bold uppercase tracking-wider text-[#FFE995] transition-all duration-300 hover:border-[#F04B91] hover:bg-[#F04B91] hover:text-white"
       >
         Plan Your Stay
         <span className="transition-transform duration-300 group-hover:translate-x-1">
@@ -625,13 +625,13 @@ export default function Home() {
       <div className="max-w-2xl">
         {/* <Label>Explore Puerto Morelos</Label> */}
 
-        <h2 className="font-sans text-3xl leading-[1.15] text-[#222] sm:text-4xl lg:text-[48px]">
+        <h2 className="font-sans text-4xl leading-[1.15] text-[#222] sm:text-5xl lg:text-[54px]">
          Top Attractions in Puerto Morelos
          
         </h2>
       </div>
 
-      <p className="max-w-sm text-sm leading-7 text-[#777]">
+      <p className="max-w-sm text-base leading-7 text-[#777]">
         From beautiful beaches and underwater adventures to fascinating
         local attractions, explore everything Puerto Morelos has to offer.
       </p>
@@ -647,16 +647,16 @@ export default function Home() {
             key={title}
             className="group relative flex gap-3 overflow-hidden rounded-2xl border border-[#eee] bg-white p-4 shadow-[0_5px_25px_rgba(0,0,0,.035)] transition-all duration-300 hover:-translate-y-1 hover:border-[#F04B91]/40 hover:shadow-[0_12px_30px_rgba(240,75,145,.10)]"
           >
-            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#FFE995] font-sans text-sm font-bold text-[#222] transition-all duration-300 group-hover:bg-[#F04B91] group-hover:text-white">
+            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#FFE995] font-sans text-base font-bold text-[#222] transition-all duration-300 group-hover:bg-[#F04B91] group-hover:text-white">
               {String(index + 1).padStart(2, "0")}
             </span>
 
             <div className="min-w-0">
-              <h3 className="text-sm font-bold leading-5 text-[#252525] transition group-hover:text-[#F04B91]">
+              <h3 className="text-base font-bold leading-5 text-[#252525] transition group-hover:text-[#F04B91]">
                 {title}
               </h3>
 
-              <p className="mt-1.5 text-xs leading-5 text-[#888]">
+              <p className="mt-1.5 text-sm leading-5 text-[#888]">
                 {description}
               </p>
             </div>
@@ -670,7 +670,7 @@ export default function Home() {
       <div className="relative min-h-[430px] overflow-hidden rounded-[2rem] bg-[#222] shadow-[0_20px_55px_rgba(0,0,0,.13)] sm:min-h-[500px]">
 
         <img
-          src="https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=1400&q=90"
+          src="/adventure/adv-1.jpeg"
           alt="Beautiful coastal landscape"
           className="absolute inset-0 h-full w-full object-cover transition duration-1000 hover:scale-105"
         />
@@ -689,7 +689,7 @@ export default function Home() {
         {/* Floating mini image */}
         <div className="absolute right-5 top-5 w-[37%] overflow-hidden rounded-2xl border-[4px] border-white shadow-2xl sm:right-7 sm:top-7">
           <img
-            src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=600&q=85"
+            src="/adventure/adv-2.jpeg"
             alt="Underwater adventure"
             className="h-24 w-full object-cover sm:h-32"
           />
@@ -697,24 +697,24 @@ export default function Home() {
 
         {/* Bottom content */}
         <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-9">
-          <span className="mb-4 inline-flex rounded-full border border-[#FFE995]/40 bg-black/20 px-4 py-2 text-xs font-bold uppercase tracking-[.2em] text-[#FFE995] backdrop-blur-md">
+          <span className="mb-4 inline-flex rounded-full border border-[#FFE995]/40 bg-black/20 px-4 py-2 text-sm font-bold uppercase tracking-[.2em] text-[#FFE995] backdrop-blur-md">
             Your next adventure awaits
           </span>
 
-          <h3 className="max-w-md font-sans text-3xl leading-tight text-white sm:text-4xl">
+          <h3 className="max-w-md font-sans text-4xl leading-tight text-white sm:text-5xl">
             Experience the Beauty of Puerto Morelos
           </h3>
 
           <div className="mt-5 flex items-center gap-3">
             <span className="h-[2px] w-10 bg-[#F04B91]" />
-            <span className="text-xs font-bold uppercase tracking-[.2em] text-white/80">
+            <span className="text-sm font-bold uppercase tracking-[.2em] text-white/80">
               Explore More
             </span>
           </div>
         </div>
 
         {/* Round decorative badge */}
-        <div className="absolute bottom-7 right-6 flex h-[76px] w-[76px] rotate-12 items-center justify-center rounded-full border-[4px] border-white bg-[#F04B91] text-center font-sans text-xs leading-4 text-white shadow-xl sm:bottom-9 sm:right-9">
+        <div className="absolute bottom-7 right-6 flex h-[76px] w-[76px] rotate-12 items-center justify-center rounded-full border-[4px] border-white bg-[#F04B91] text-center font-sans text-sm leading-4 text-white shadow-xl sm:bottom-9 sm:right-9">
           Discover<br />More
         </div>
       </div>
@@ -743,17 +743,17 @@ export default function Home() {
   <div className="relative mx-auto flex max-w-[1250px] flex-col items-center justify-between gap-8 md:flex-row">
 
     <div className="max-w-2xl text-center md:text-left">
-      <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-4 py-2 text-xs font-bold uppercase tracking-[.22em] text-white backdrop-blur-md">
+      <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-4 py-2 text-sm font-bold uppercase tracking-[.22em] text-white backdrop-blur-md">
         <span className="h-2 w-2 rounded-full bg-[#FFE995]" />
         Your tropical getaway starts here
       </div>
 
-      <h2 className="font-sans text-3xl leading-tight text-white sm:text-4xl lg:text-[48px]">
+      <h2 className="font-sans text-4xl leading-tight text-white sm:text-5xl lg:text-[54px]">
         Ready to Experience
         <span className="text-[#FFE995]"> Maya House?</span>
       </h2>
 
-      <p className="mt-3 max-w-xl text-sm leading-7 text-white/85">
+      <p className="mt-3 max-w-xl text-base leading-7 text-white/85">
         For advance booking or enquiry, get in touch with us and start
         planning your stay in beautiful Puerto Morelos.
       </p>
@@ -767,10 +767,10 @@ export default function Home() {
         className="group relative flex items-center gap-4 rounded-full bg-[#FFE995] py-3 pl-6 pr-3 text-[#222] shadow-[0_15px_35px_rgba(0,0,0,.15)] transition-all duration-300 hover:-translate-y-1 hover:bg-white hover:shadow-2xl"
       >
         <div>
-          <span className="block text-xs font-bold uppercase tracking-[.16em] text-[#777]">
+          <span className="block text-sm font-bold uppercase tracking-[.16em] text-[#777]">
             Call us today
           </span>
-          <span className="mt-1 block text-sm font-bold sm:text-base">
+          <span className="mt-1 block text-base font-bold sm:text-lg">
             +52 1 777 120 3037
           </span>
         </div>
@@ -806,14 +806,14 @@ export default function Home() {
       <div className="relative">
         <Label>We're Here to Help</Label>
 
-        <h2 className="max-w-md font-sans text-4xl leading-[1.15] text-[#222] sm:text-5xl">
+        <h2 className="max-w-md font-sans text-5xl leading-[1.15] text-[#222] sm:text-6xl">
           Have Questions?
           <span className="block text-[#F04B91]">
             We've Got Answers.
           </span>
         </h2>
 
-        <p className="mt-5 max-w-sm text-sm leading-7 text-[#777]">
+        <p className="mt-5 max-w-sm text-base leading-7 text-[#777]">
           Everything you need to know before planning your stay at Maya House.
           Find answers to some of our frequently asked questions.
         </p>
@@ -825,12 +825,12 @@ export default function Home() {
           </div>
 
           <div>
-            <p className="text-sm font-bold text-[#222]">
+            <p className="text-base font-bold text-[#222]">
               Still have questions?
             </p>
             <a
               href="mailto:info@mayahouse.com"
-              className="mt-1 text-xs text-[#F04B91] transition hover:text-[#222]"
+              className="mt-1 text-sm text-[#F04B91] transition hover:text-[#222]"
             >
               Contact our team
             </a>
@@ -847,11 +847,11 @@ export default function Home() {
     <div className="relative rounded-[2rem] border border-white bg-white/75 p-4 shadow-[0_20px_60px_rgba(0,0,0,.07)] backdrop-blur-md sm:p-6">
 
       <div className="mb-4 flex items-center justify-between px-2">
-        <h3 className="font-sans text-xl text-[#222]">
+        <h3 className="font-sans text-2xl text-[#222]">
           Frequently Asked Questions
         </h3>
 
-        <span className="rounded-full bg-[#FFE995] px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-[#222]">
+        <span className="rounded-full bg-[#FFE995] px-3 py-1.5 text-sm font-bold uppercase tracking-wider text-[#222]">
           Help Center
         </span>
       </div>
@@ -876,7 +876,7 @@ export default function Home() {
                 className="flex w-full items-center gap-4 p-4 text-left sm:p-5"
               >
                 <span
-                  className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-xl font-sans text-sm font-bold transition ${
+                  className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-xl font-sans text-base font-bold transition ${
                     isOpen
                       ? "bg-[#F04B91] text-white"
                       : "bg-[#FFE995] text-[#222]"
@@ -885,7 +885,7 @@ export default function Home() {
                   {String(index + 1).padStart(2, "0")}
                 </span>
 
-                <span className="flex-1 text-sm font-bold leading-6 text-[#292929] sm:text-base">
+                <span className="flex-1 text-base font-bold leading-6 text-[#292929] sm:text-lg">
                   {faq.question}
                 </span>
 
@@ -908,7 +908,7 @@ export default function Home() {
                 }`}
               >
                 <div className="overflow-hidden">
-                  <p className="border-t border-[#F04B91]/10 px-4 pb-5 pt-4 pl-[4.4rem] text-sm leading-7 text-[#777] sm:pl-[4.8rem]">
+                  <p className="border-t border-[#F04B91]/10 px-4 pb-5 pt-4 pl-[4.4rem] text-base leading-7 text-[#777] sm:pl-[4.8rem]">
                     {faq.answer}
                   </p>
                 </div>
@@ -918,7 +918,7 @@ export default function Home() {
         })}
       </div>
 
-      <div className="mt-5 flex items-center justify-center gap-2 text-xs font-semibold uppercase tracking-[.16em] text-[#999]">
+      <div className="mt-5 flex items-center justify-center gap-2 text-sm font-semibold uppercase tracking-[.16em] text-[#999]">
         <span className="h-1.5 w-1.5 rounded-full bg-[#F04B91]" />
         We're happy to help you plan your stay
       </div>
@@ -934,7 +934,7 @@ export default function Home() {
     <div className="mb-7 flex items-end justify-between">
       <div>
         <Label>Photo Gallery</Label>
-        <h2 className="font-sans text-3xl text-[#222] sm:text-4xl">
+        <h2 className="font-sans text-4xl text-[#222] sm:text-5xl">
           Explore Maya House
         </h2>
       </div>
@@ -1003,7 +1003,7 @@ export default function Home() {
     className="h-full w-full object-contain"
   />
 </a>
-            <p className="mt-5 max-w-xs text-sm leading-6 text-white/55">
+            <p className="mt-5 max-w-xs text-base leading-6 text-white/55">
               Maya House is located in a gated community in a quiet complex surrounded by the beautiful Mayan jungle.
             </p>
             <div className="mt-5 flex gap-3">
@@ -1013,15 +1013,15 @@ export default function Home() {
           </div>
 
           <div>
-            <h3 className="mb-5 text-xs font-bold uppercase tracking-[.2em] text-[#F04B91]">Access</h3>
-            <div className="flex flex-col gap-3 text-sm text-white/60">
+            <h3 className="mb-5 text-sm font-bold uppercase tracking-[.2em] text-[#F04B91]">Access</h3>
+            <div className="flex flex-col gap-3 text-base text-white/60">
               {navigation.slice(0, 4).map(([label, href]) => <a key={label} href={href} className="transition hover:translate-x-1 hover:text-[#FFE995]">{label}</a>)}
             </div>
           </div>
 
           <div>
-            <h3 className="mb-5 text-xs font-bold uppercase tracking-[.2em] text-[#F04B91]">Information</h3>
-            <div className="flex flex-col gap-3 text-sm text-white/60">
+            <h3 className="mb-5 text-sm font-bold uppercase tracking-[.2em] text-[#F04B91]">Information</h3>
+            <div className="flex flex-col gap-3 text-base text-white/60">
               <a href="#amenities" className="hover:text-[#FFE995]">Amenities</a>
               <a href="#attractions" className="hover:text-[#FFE995]">Attractions</a>
               <a href="#gallery" className="hover:text-[#FFE995]">Gallery</a>
@@ -1034,14 +1034,15 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="relative mx-auto mt-10 flex max-w-[1300px] flex-col justify-between gap-3 border-t border-white/15 pt-6 text-xs text-white/40 sm:flex-row">
-          <p>Copyright © {new Date().getFullYear()} Maya House. All Rights Reserved.</p>
+        <div className="relative mx-auto mt-10 flex max-w-[1300px] flex-col justify-between gap-3 border-t border-white/15 pt-6 text-sm text-white/40 sm:flex-row">
+          {/* <p>Copyright  Maya House. All Rights Reserved.</p> */}
+          <p>Copyright © {new Date().getFullYear()}by Maya Dream Vacation. All Rights Reserved.</p>
           <a href="#home" className="transition hover:text-[#F04B91]">Back to top ↑</a>
         </div>
       </footer>
 
       {/* FLOATING BUTTONS */}
-      <a href="#home" aria-label="Back to top" className="fixed bottom-6 left-5 z-50 flex h-11 w-11 items-center justify-center rounded-full border-2 border-white bg-[#F04B91] text-xl text-white shadow-xl transition hover:-translate-y-1 hover:bg-black">↑</a>
+      <a href="#home" aria-label="Back to top" className="fixed bottom-6 left-5 z-50 flex h-11 w-11 items-center justify-center rounded-full border-2 border-white bg-[#F04B91] text-2xl text-white shadow-xl transition hover:-translate-y-1 hover:bg-black">↑</a>
 
       <a
         href="https://wa.me/5217771203037"
