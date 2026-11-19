@@ -5,31 +5,51 @@ import { useEffect, useState } from "react";
 
 const slides = [
   {
-    image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=2200&q=90",
+    image: "/hero/hero-1.jpg",
     title: "Your Dream Vacation",
     subtitle: "In A Tropical Paradise",
   },
   {
-    image: "https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=2200&q=90",
-    title: "Discover Paradise",
-    subtitle: "Experience The Beauty Of Puerto Morelos",
+    image: "/hero/hero-2.png",
+    title: "Discover the perfect balance of Harmony and Comfort",
+    subtitle: "Maya Dream Vacation is focused on providing our Guests an Exquisitely Luxurious Experience",
   },
   {
-    image: "https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?auto=format&fit=crop&w=2200&q=90",
-    title: "Relax. Explore. Enjoy.",
-    subtitle: "Make Every Moment Unforgettable",
+    image: "/hero/hero-5.png",
+    title: "Maya History and Tradition",
+    subtitle: "Kept Back by the People",
+  },
+    {
+    image: "/hero/hero-4.png",
+    title: "Enjoy Exciting Coral Snorkelling",
+    subtitle: "Experience Off the Shore Activities",
+  },
+    {
+    image: "/hero/hero-3.png",
+    title: "Cenotes, Unique Natural Wonders",
+    subtitle: "Kept Back by the People",
   },
 ];
 
 const photos = [
-  "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=900&q=85",
-  "https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=900&q=85",
-  "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=900&q=85",
-  "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=900&q=85",
-  "https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=900&q=85",
-  "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=900&q=85",
-  "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=900&q=85",
-  "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=900&q=85",
+  "/amenities/am-1.jpg",
+  "/amenities/am-2.jpg",
+  "/amenities/am-3.jpg",
+  "/amenities/am-4.jpg",
+  "/amenities/am-5.jpg",
+  "/amenities/am-6.jpg",
+  "/amenities/am-7.jpg",
+  "/amenities/am-8.jpg",
+  "/amenities/am-9.jpg",
+  "/amenities/am-10.jpg",
+  "/amenities/am-11.jpg",
+  "/amenities/am-12.jpg",
+
+  "/amenities/am-13.jpg",
+  "/amenities/am-14.jpg",
+  "/amenities/am-15.jpg",
+  "/amenities/am-16.jpg",
+  "/amenities/am-17.jpg",
 ];
 
 const amenities = [
@@ -57,27 +77,34 @@ const attractions = [
   ["The Cenotes Route", "Delve into the city's most distinctive environmental phenomena."],
   ["Wide, Sandy, Uncrowded, and Groomed Beaches", "Unforgettable relaxation time on the pristine beaches."],
   ["The Nicklaus Design Golf Course", "Please your mind by playing golf on this beautiful course in Puerto Morelos."],
-  ["Wilderness Trips", "Stay in the greenery of the forests and eco-parks away from the city."],
+  ["Wilderness Trips", "Step into the Greeneries of the forests and Eco-parks away from the City"],
   ["Cruise Sunset Sailing", "A refreshing and thrilling sailing experience awaits you in Puerto Morelos."],
-  ["The Leaning Lighthouse", "The leaning lighthouse on the Riviera Maya is a must-see in town."],
-  ["Rodeo Arena", "Enjoy a local rodeo experience and discover the traditional culture of the area."],
+  ["The Leaning Lighthouse", "This active lighthouse on the Riviera Maya is a must-see in the town. It still carries the echoes of the once-troubled history of this place with lighthouses!"],
+  ["Rodeo Arena", "If you visit at Christmas, every year, the local people organize bullfighting in this arena while parading the status of Guadalupe around."],
 ];
 
 const faqs = [
   {
     question: "How can I book?",
-    answer: "Contact Maya House directly by phone or email to ask about availability and booking arrangements.",
+    answer:
+      "You can book an apartment here by just filling up the form on the website, contacting us over the phone, or dropping an email to us.",
   },
   {
     question: "What is the charge for booking at Maya House?",
-    answer: "Please contact us for current rates, availability and booking information.",
+    answer: `It depends on the booking timeline and the category of facilities you opt for during your stay; generally, the fees vary like:
+
+May 1st – October 31st — $1,200 pesos per night (78 CAD)
+
+November 1st – April 30th — $1,600 pesos per night (103 CAD)
+
+Monthly rentals – $20,000/Month`,
   },
   {
     question: "Can I cancel a booking?",
-    answer: "Please contact the Maya House team to discuss the cancellation terms associated with your reservation.",
+    answer:
+      "Yes, but for booking cancellation, you must pay the cancellation charge as per the company rules.",
   },
 ];
-
 function Icon({ name, size = 20 }) {
   const paths = {
     arrow: <><path d="M7 17 17 7" /><path d="M7 7h10v10" /></>,
@@ -150,6 +177,7 @@ export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeFaq, setActiveFaq] = useState(-1);
   const [galleryIndex, setGalleryIndex] = useState(0);
+  const [amenitiesPhotoIndex, setAmenitiesPhotoIndex] = useState(0);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -238,13 +266,17 @@ export default function Home() {
 
         <header className="absolute left-0 right-0 top-0 z-30">
           <div className="mx-auto flex max-w-[1400px] items-center justify-between px-6 py-5 sm:px-10">
-            <a href="#home" className="relative flex h-[100px] w-[100px] items-center justify-center rounded-full border-[3px] border-[#FFE995] bg-[#F04B91] shadow-xl sm:h-[112px] sm:w-[112px]">
-              <div className="absolute inset-2 rounded-full border border-dashed border-white/80" />
-              <div className="relative text-center text-white">
-                <span className="block font-sans text-3xl font-bold tracking-widest">MAYA</span>
-                <span className="mt-1 block text-xs font-semibold tracking-[.25em]">HOUSE</span>
-              </div>
-            </a>
+  <a
+  href="#home"
+  aria-label="Maya House home"
+  className="block h-[140px] w-[140px] sm:h-[150px] sm:w-[150px] lg:h-[165px] lg:w-[165px]"
+>
+  <img
+    src="/logo.png"
+    alt="Maya House"
+    className="h-full w-full object-contain"
+  />
+</a>
 
             <div className="hidden items-center gap-6 rounded-full border border-white/20 bg-black/20 px-6 py-3 backdrop-blur-xl lg:flex">
               {navigation.map(([label, href]) => (
@@ -316,13 +348,13 @@ export default function Home() {
 
           <div className="relative grid grid-cols-12 items-center gap-3 sm:gap-4">
             <div className="col-span-5 mt-8 overflow-hidden rounded-t-[4rem] rounded-b-[1.5rem] border-[5px] border-white shadow-xl">
-              <img src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1000&q=85" alt="Coastal landscape" className="h-[260px] w-full object-cover transition duration-700 hover:scale-110 sm:h-[340px]" />
+              <img src="/about/about-1.jpeg" alt="Coastal landscape" className="h-[260px] w-full object-cover transition duration-700 hover:scale-110 sm:h-[340px]" />
             </div>
             <div className="col-span-7 overflow-hidden rounded-[2rem] border-[5px] border-white shadow-xl">
-              <img src="https://images.unsplash.com/photo-1512813195386-6cf811ad3542?auto=format&fit=crop&w=1000&q=85" alt="Local architecture" className="h-[220px] w-full object-cover transition duration-700 hover:scale-110 sm:h-[290px]" />
+              <img src="/about/about-2.jpeg" alt="Local architecture" className="h-[220px] w-full object-cover transition duration-700 hover:scale-110 sm:h-[290px]" />
             </div>
             <div className="absolute -bottom-3 left-[35%] z-10 w-[48%] overflow-hidden rounded-[1.5rem] border-[5px] border-white shadow-xl">
-              <img src="https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=1000&q=85" alt="Ocean view" className="h-[120px] w-full object-cover sm:h-[160px]" />
+              <img src="/about/about-3.jpeg" alt="Ocean view" className="h-[120px] w-full object-cover sm:h-[160px]" />
             </div>
             <div className="absolute -right-2 -top-4 flex h-20 w-20 items-center justify-center rounded-full border-[5px] border-white bg-[#F04B91] text-center font-sans text-xs leading-4 text-white shadow-xl sm:h-24 sm:w-24">
               Maya<br />House
@@ -333,20 +365,23 @@ export default function Home() {
 
       {/* DISCOVER */}
       
-<section id="discover" className="relative min-h-[390px] overflow-hidden sm:min-h-[420px]">
-  <img
-    src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=2200&q=90"
-    alt="Caribbean beach"
-    className="absolute inset-0 h-full w-full object-cover"
-  />
+<section
+  id="discover"
+  className="relative min-h-[520px] overflow-hidden sm:min-h-[580px] lg:min-h-[650px]"
+>
+<img
+  src="/about/sea.png"
+  alt="Caribbean beach"
+  className="absolute inset-0 h-full w-full object-cover object-[center_90%]"
+/>
 
-  {/* Softer overlay - allows more of the image to show */}
+  {/* Soft overlay */}
   <div className="absolute inset-0 bg-gradient-to-r from-white/65 via-white/40 to-white/5" />
 
   <div className="absolute -right-20 -top-24 h-80 w-80 rounded-full border-[35px] border-white/20" />
   <Flower className="absolute right-10 top-10 h-48 w-48 opacity-20" />
 
-  <div className="relative mx-auto flex min-h-[390px] max-w-[1300px] items-center px-6 py-12 sm:min-h-[420px] sm:px-10">
+  <div className="relative mx-auto flex min-h-[520px] max-w-[1500px] items-center px-6 py-14 sm:min-h-[580px] sm:px-10 lg:min-h-[650px] lg:px-16">
     <div className="max-w-xl rounded-[2rem] border border-white/50 bg-white/35 p-6 shadow-[0_15px_50px_rgba(0,0,0,.08)] backdrop-blur-sm sm:p-8">
       <Label>Discover the destination</Label>
 
@@ -367,24 +402,59 @@ export default function Home() {
 
 
       {/* AMENITIES */}
-      <section id="amenities" className="relative overflow-hidden bg-[#FAFAFA] px-6 py-14 sm:px-10 sm:py-20">
+      <section
+        id="amenities"
+        className="relative overflow-hidden bg-[#FAFAFA] px-6 py-14 sm:px-10 sm:py-20"
+      >
         <div className="absolute -right-24 top-10 h-72 w-72 rounded-full bg-[#FFE995]/35 blur-3xl" />
 
-        <div className="relative mx-auto grid max-w-[1400px] items-center gap-10 lg:grid-cols-[1.1fr_.9fr]">
-          <div className="relative grid grid-cols-4 gap-2 rounded-[2rem] border border-white bg-white p-2.5 shadow-[0_20px_55px_rgba(0,0,0,.09)]">
-            {photos.map((photo, index) => (
-              <div key={photo} className={`group overflow-hidden rounded-xl ${index === 0 || index === 7 ? "col-span-2 row-span-2" : ""}`}>
-                <img src={photo} alt={`Maya House accommodation ${index + 1}`} className="h-24 w-full object-cover transition duration-700 group-hover:scale-110 sm:h-32" />
+        <div className="relative mx-auto grid max-w-[1500px] items-center gap-10 lg:grid-cols-[1.15fr_.85fr] lg:gap-14">
+          {/* AMENITIES PHOTO CAROUSEL */}
+          <div className="relative min-w-0">
+            <div className="mb-5 flex items-center justify-between gap-4">
+              <div>
+                <Label>Inside Maya House</Label>
+                <p className="text-sm text-[#888]">Take a closer look at the spaces</p>
               </div>
-            ))}
-            <div className="absolute -bottom-4 -right-4 flex h-20 w-20 items-center justify-center rounded-full border-[5px] border-white bg-[#FFE995] text-center font-sans text-sm text-[#F04B91] shadow-lg">
-              Feel<br />at home
+              <div className="flex items-center gap-2">
+                <span className="mr-2 text-xs font-semibold tabular-nums text-[#888]">
+                  {String(amenitiesPhotoIndex + 1).padStart(2, "0")} / {String(photos.length).padStart(2, "0")}
+                </span>
+                <button type="button" onClick={() => setAmenitiesPhotoIndex((current) => (current - 1 + photos.length) % photos.length)} aria-label="Previous amenities photo" className="flex h-10 w-10 items-center justify-center rounded-full border border-[#e8e8e8] bg-white text-[#F04B91] shadow-sm transition hover:border-[#F04B91] hover:bg-[#F04B91] hover:text-white">
+                  <Icon name="left" size={17} />
+                </button>
+                <button type="button" onClick={() => setAmenitiesPhotoIndex((current) => (current + 1) % photos.length)} aria-label="Next amenities photo" className="flex h-10 w-10 items-center justify-center rounded-full border border-[#e8e8e8] bg-white text-[#F04B91] shadow-sm transition hover:border-[#F04B91] hover:bg-[#F04B91] hover:text-white">
+                  <Icon name="right" size={17} />
+                </button>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+              {[0, 1, 2].map((offset) => {
+                const photoIndex = (amenitiesPhotoIndex + offset) % photos.length;
+                return (
+                  <div key={`${photoIndex}-${offset}`} className={`group relative overflow-hidden rounded-[1.5rem] bg-[#eee] shadow-[0_15px_40px_rgba(0,0,0,.09)] ${offset === 1 ? "hidden sm:block" : ""} ${offset === 2 ? "hidden lg:block" : ""}`}>
+                    <img src={photos[photoIndex]} alt={`Maya House accommodation ${photoIndex + 1}`} loading="lazy" className="h-[300px] w-full object-cover transition duration-700 group-hover:scale-105 sm:h-[340px] lg:h-[390px]" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent" />
+                    <span className="absolute bottom-4 left-4 rounded-full border border-white/40 bg-black/25 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[.18em] text-white backdrop-blur-md">
+                      Maya House · {String(photoIndex + 1).padStart(2, "0")}
+                    </span>
+                  </div>
+                );
+              })}
+            </div>
+
+            <div className="mt-4 flex flex-wrap gap-1.5">
+              {photos.map((_, index) => (
+                <button key={index} type="button" onClick={() => setAmenitiesPhotoIndex(index)} aria-label={`Show amenities photo ${index + 1}`} className={`h-1.5 rounded-full transition-all ${amenitiesPhotoIndex === index ? "w-8 bg-[#F04B91]" : "w-1.5 bg-[#ddd] hover:bg-[#F04B91]/50"}`} />
+              ))}
             </div>
           </div>
 
+          {/* AMENITIES CONTENT */}
           <div>
             <Label>Our Amenities</Label>
-            <h2 className="font-sans text-3xl text-[#F04B91] sm:text-4xl">Comfort & Convenience</h2>
+            <h2 className="font-sans text-3xl leading-tight text-[#F04B91] sm:text-4xl">Comfort & Convenience</h2>
             <p className="mt-3 text-base leading-7 text-[#777]">Thoughtfully equipped spaces and practical comforts for a relaxing stay.</p>
             <div className="mt-6 grid gap-2.5 sm:grid-cols-2">
               {amenities.map((item, index) => (
@@ -400,8 +470,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* FACILITIES */}
-    
 {/* PREMIUM FACILITIES SECTION */}
 <section className="relative isolate overflow-hidden bg-[#171717] px-5 py-16 text-white sm:px-10 sm:py-20 lg:py-24">
 
@@ -434,29 +502,24 @@ export default function Home() {
     <div className="mb-12 grid items-end gap-7 lg:grid-cols-[1fr_.7fr]">
 
       <div>
-        <div className="mb-5 inline-flex items-center gap-3 rounded-full border border-[#FFE995]/30 bg-white/10 px-5 py-2.5 backdrop-blur-md">
+        {/* <div className="mb-5 inline-flex items-center gap-3 rounded-full border border-[#FFE995]/30 bg-white/10 px-5 py-2.5 backdrop-blur-md">
           <span className="h-2 w-2 rounded-full bg-[#F04B91] shadow-[0_0_12px_#F04B91]" />
           <span className="text-xs font-bold uppercase tracking-[.25em] text-[#FFE995]">
             The Building Complex Offers
           </span>
-        </div>
+        </div> */}
 
         <h2 className="max-w-2xl font-sans text-4xl leading-[1.1] text-white sm:text-5xl lg:text-[56px]">
-          More Than Just
-          <span className="relative ml-3 inline-block text-[#FFE995]">
-            A Stay.
-            <span className="absolute -bottom-2 left-0 h-[3px] w-[75%] rounded-full bg-[#F04B91]" />
-          </span>
-          <br />
-          A Complete Experience.
+          The Building Complex Offers
+          
         </h2>
       </div>
 
       <div className="max-w-md lg:justify-self-end">
-        <p className="text-sm leading-7 text-white/70 sm:text-base">
+        {/* <p className="text-sm leading-7 text-white/70 sm:text-base">
           Enjoy thoughtfully designed shared spaces and facilities that bring
           comfort, recreation and relaxation together throughout your stay.
-        </p>
+        </p> */}
 
         <div className="mt-5 flex items-center gap-3">
           <span className="h-[2px] w-10 bg-[#F04B91]" />
@@ -560,11 +623,11 @@ export default function Home() {
     {/* Heading */}
     <div className="mb-10 flex flex-col justify-between gap-5 md:flex-row md:items-end">
       <div className="max-w-2xl">
-        <Label>Explore Puerto Morelos</Label>
+        {/* <Label>Explore Puerto Morelos</Label> */}
 
         <h2 className="font-sans text-3xl leading-[1.15] text-[#222] sm:text-4xl lg:text-[48px]">
-          Discover Places.
-          <span className="text-[#F04B91]"> Create Memories.</span>
+         Top Attractions in Puerto Morelos
+         
         </h2>
       </div>
 
@@ -929,12 +992,17 @@ export default function Home() {
         <Flower className="absolute -right-12 -top-12 h-56 w-56 opacity-15" color="#FFE995" />
         <div className="relative mx-auto grid max-w-[1300px] gap-9 sm:grid-cols-2 lg:grid-cols-[1fr_.8fr_.8fr_1.2fr]">
           <div>
-            <div className="flex h-20 w-20 items-center justify-center rounded-full border-[3px] border-[#FFE995] bg-[#F04B91] shadow-lg">
-              <div className="text-center font-sans">
-                <p className="text-xl font-bold tracking-widest">MAYA</p>
-                <p className="text-xs tracking-[.25em]">HOUSE</p>
-              </div>
-            </div>
+         <a
+  href="#home"
+  aria-label="Maya House home"
+  className="block h-[100px] w-[100px] sm:h-[120px] sm:w-[120px] lg:h-[140px] lg:w-[140px]"
+>
+  <img
+    src="/logo.png"
+    alt="Maya House"
+    className="h-full w-full object-contain"
+  />
+</a>
             <p className="mt-5 max-w-xs text-sm leading-6 text-white/55">
               Maya House is located in a gated community in a quiet complex surrounded by the beautiful Mayan jungle.
             </p>
